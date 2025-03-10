@@ -8,7 +8,7 @@
 git clone https://github.com/Mister-Monkster/cafe.git
 ```
 ```
-cd TestDjango
+cd cafe
 ```
 2. Создайте виртуальное окружение
 ```

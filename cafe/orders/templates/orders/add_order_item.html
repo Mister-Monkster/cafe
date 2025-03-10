@@ -1,0 +1,10 @@
+{% extends 'orders/base.html' %}
+{% block content %}
+    <h1>Добавить позицию в заказ {{ order.id }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Добавить</button>
+    </form>
+    <a href="{% url 'order_detail' order.pk %}">Назад к заказу</a>
+{% endblock %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'orders/css/style.css' %}">
+    <link rel="stylesheet" href="./static/orders/css/style.css" type="text/css" media="all" />
+    <title>{{ Title }}</title>
+</head>
+<body style="background-image: url({% static 'orders/image/bg.jpg' %})">
+
+<div class="bg" >
+    <div class="content">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+</div>
+</body>
+</html>

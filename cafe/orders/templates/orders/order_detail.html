@@ -1,0 +1,23 @@
+{% extends 'orders/base.html' %}
+{% block content %}
+    <h1>Заказ {{ order.id }}</h1>
+    <p>Стол: {{ order.table_number }}</p>
+    <p>Статус: {{ order.get_status_display }}</p>
+    <p>Общая стоимость: {{order.total_price }} руб.</p>
+
+    <h2>Позиции заказа</h2>
+    <ul>
+        {% for item in order.items.all %}
+            <li class="detail">{{ item.quantity }} x {{ item.product.name }} ({{ item.product.price }} руб.)</li>
+            <a href="{% url 'delete_order_item' item.pk %}">Удалить</a>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'add_order_item' order.pk %}">Добавить позицию</a>
+    <a href="{% url 'order_update' order.pk %}">Редактировать заказ</a>
+    <form action="{% url 'order_delete' order.pk %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Удалить заказ</button>
+    </form>
+    <a href="{% url 'order_list' %}">Назад к списку заказов</a>
+{% endblock %}

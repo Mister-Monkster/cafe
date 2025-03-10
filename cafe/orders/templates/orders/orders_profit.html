@@ -1,0 +1,9 @@
+{% extends 'orders/base.html' %}
+{%block content%}
+<form method="get">
+{{ form.as_p }}
+    <button>Ввод</button>
+</form>
+<h1>Общая прибыль</h1>
+<h2>{{ profit }} руб.</h2>
+{% endblock %}

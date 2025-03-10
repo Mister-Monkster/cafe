@@ -1,0 +1,19 @@
+{% extends 'orders/base.html' %}
+{% block content %}
+    <form method="get">
+        {{ form.as_p }}
+        <button type="submit">Поиск</button>
+    </form>
+    <h1>Список заказов</h1>
+    <a href="{% url 'order_create' %}">Создать новый заказ</a>
+    <ul>
+        {% for order in orders %}
+            <li>
+                <a href="{% url 'order_detail' order.pk %}">
+                    Заказ {{ order.id }} (Стол {{ order.table_number }})
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+<a href="{% url 'profit'%}"><button>Расчет прибыли</button></a>
+{% endblock %}

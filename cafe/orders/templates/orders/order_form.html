@@ -1,0 +1,10 @@
+{% extends 'orders/base.html' %}
+{% block content %}
+    <h1>{% if form.instance.pk %}Редактировать заказ{% else %}Создать заказ{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+    <a href="{% url 'order_list' %}">Назад к списку заказов</a>
+{% endblock %}

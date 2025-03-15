@@ -8,8 +8,10 @@
     <h2>Позиции заказа</h2>
     <ul>
         {% for item in order.items.all %}
-            <li class="detail">{{ item.quantity }} x {{ item.product.name }} ({{ item.product.price }} руб.)</li>
+         <div class="detail">
+            <li>{{ item.quantity }} x {{ item.product.name }} ({{ item.product.price }} руб.)</li>
             <a href="{% url 'delete_order_item' item.pk %}">Удалить</a>
+        </div>
         {% endfor %}
     </ul>
 
